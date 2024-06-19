@@ -3,6 +3,7 @@
 #include<iostream>
 #include<fstream>
 #include<string>
+#include<cmath>
 #include"Poisson.h"
 
 using namespace std;
@@ -15,22 +16,20 @@ int main() {
     int m = 5, n = 6; // Número de puntos en cada dirección
     double Tol = 1e-6; // Tolerancia
     int N = 100; // Número máximo de iteraciones
-    
-    double V_0 = 1.0; // Valor de V en y = d
 
-    auto f = [](double x, double y) { return 0.0; };
-    auto g = [a,b,c,d,V_0](double x, double y) {
-        if (y == d && x >= a && x <= b) {
-            return V_0;
-    }
-        else {
-            return 0.0;
-        }
-    };
+    double M = 1.0; // Masa de la galaxia
+
+
+
+    auto f = [a,M](double x, double y) { 
+        double ratio = (pow(x,2)+pow(y,2))/pow(a,2);
+        return M/(2*M_PI*pow(a,2))*pow((1+ratio),-1.5);
+        };
+    auto g = [](double x, double y) { return 0.0; };
 
     PoissonSolver solver(a, b, c, d, m, n, Tol, N, f, g);
     solver.solve();
-    solver.guardarcvs("Solucion_Ejemplo1.csv");
+    solver.guardarcvs("Solucion_Ejemplo2.csv");
     
 
     return 0;    
