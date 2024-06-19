@@ -18,12 +18,13 @@ int main() {
     int N = 100; // Número máximo de iteraciones
 
     double M = 1.0; // Masa de la galaxia
+    double alpha = 0.5; // Radio característico de la galaxia
 
 
 
-    auto f = [a,M](double x, double y) { 
-        double ratio = (pow(x,2)+pow(y,2))/pow(a,2);
-        return M/(2*M_PI*pow(a,2))*pow((1+ratio),-1.5);
+    auto f = [alpha,M](double x, double y) { 
+        double ratio = (pow(x,2)+pow(y,2))/pow(alpha,2);
+        return M/(2*M_PI*pow(alpha,2))*pow((1+ratio),-1.5);
         };
     auto g = [](double x, double y) { return 0.0; };
 
