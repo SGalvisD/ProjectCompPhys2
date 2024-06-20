@@ -12,15 +12,15 @@ int main() {
     //double x, y;
 
     double a = 0.0, b = 2.0, c = 0.0, d = 1.0; // Límites del dominio
-    int m = 5, n = 6; // Número de puntos en cada dirección
-    double Tol = 1e-6; // Tolerancia
-    int N = 100; // Número máximo de iteraciones
+    int m = 7, n = 4; // Número de puntos en cada dirección
+    double Tol = 1e-9; // Tolerancia
+    int N = 1000; // Número máximo de iteraciones
     
     double V_0 = 1.0; // Valor de V en y = d
 
     auto f = [](double x, double y) { return 0.0; };
     auto g = [a,b,c,d,V_0](double x, double y) {
-        if (y == d && x >= a && x <= b) {
+        if (y == d) {
             return V_0;
     }
         else {

@@ -12,13 +12,13 @@ using namespace std;
 int main() {
     //double x, y;
 
-    double a = 0.0, b = 2.0, c = 0.0, d = 1.0; // Límites del dominio
-    int m = 5, n = 6; // Número de puntos en cada dirección
+    double a = -4, b = 4.0, c = -4.0, d = 4.0; // Límites del dominio
+    int m = 10, n = 10; // Número de puntos en cada dirección
     double Tol = 1e-6; // Tolerancia
-    int N = 100; // Número máximo de iteraciones
+    int N = 1000; // Número máximo de iteraciones
 
     double M = 1.0; // Masa de la galaxia
-    double alpha = 0.5; // Radio característico de la galaxia
+    double alpha = 0.1; // Radio característico de la galaxia
 
 
 
